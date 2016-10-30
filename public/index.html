@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<!--Google fonts-->
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://js.arcgis.com/3.18/dijit/themes/claro/claro.css">
+		<link rel="stylesheet" href="https://js.arcgis.com/3.18/esri/css/esri.css">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://js.arcgis.com/3.18/"></script>
+		<script src="index.js"></script>
+		<title></title>
+	</head>
+	<body class="claro">
+        <div id="content"
+             data-dojo-type="dijit/layout/BorderContainer"
+             data-dojo-props="design:'headline', gutters:true"
+             style="width: 100%; height: 100%; margin: 0;">
+            
+            <div id="rightPane"
+                 data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'right'">
+                
+                <div data-dojo-type="dijit/layout/AccordionContainer">
+                    
+                    <div data-dojo-type="dijit/layout/ContentPane" id="legendPane"
+                         data-dojo-props="title:'Legend', selected:true">
+                        <div id="legendDiv"></div>
+                    </div>
+                    
+                    <div data-dojo-type="dijit/layout/ContentPane"
+                         data-dojo-props="title:'Select Data'">
+                        <div id="dataSelectDiv" data-dojo-type="dijit/DropDownMenu">
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Rating for Studio Apartments
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("studio", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Rating for One Bedroom
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("one", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Rating for Two Bedroom
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("two", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Rating for Three Bedroom
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("three", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Rating for Four Bedroom
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("four", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Rating for Five Bedroom
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("five", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Population
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("general", 0);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Square Miles
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("general", 1);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Population Density
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("general", 2);
+                                </script>
+                            </div>
+                            <div data-dojo-type="dijit/MenuItem"> 
+                                Unemployment
+                                <script type="dojo/on" data-dojo-event="click">
+                                    drawFeatureLayer("general", 4);
+                                    drawFeatureLayer("general", 3);
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div data-dojo-type="dijit/layout/ContentPane"
+                         data-dojo-props="title:'Submit Rating'">
+                        <div data-dojo-type="dijit/form/Form" id="ratingForm" data-dojo-id="ratingForm"
+                             encType="multipart/form-data" action="" method="">
+                            <input type="text" id="address" placeholder="zip" data-dojo-type="dijit/form/TextBox" />
+                            <input type="number" id="rating" placeholder="rating" data-dojo-type="dijit/form/NumberTextBox" />
+                            <button data-dojo-type="dijit/form/Button" type="button">
+                                Submit
+                                <script type="dojo/on" data-dojo-event="click">
+                                    var address = ratingForm.getChildren()[0].getValue();
+                                    var rating = ratingForm.getChildren()[1].getValue();
+                                    submitRating(address, rating);
+                                </script>
+                            </button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="map"
+                 data-dojo-type="dijit/layout/ContentPane"
+                 data-dojo-props="region:'center'"
+                 style="overflow:hidden;">
+            </div>
+        </div>
+	</body>
+</html>

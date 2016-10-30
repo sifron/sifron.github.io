@@ -1,0 +1,28 @@
+{
+  "name": "simple-move",
+  "version": "1.0.0",
+  "description": "App for analyis of rent data",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Random-Acts-Of-Code/Simple-Move.git"
+  },
+  "keywords": [
+    "rent",
+    "data",
+    "hacknc"
+  ],
+  "author": "Random Acts of Code",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Random-Acts-Of-Code/Simple-Move/issues"
+  },
+  "homepage": "https://github.com/Random-Acts-Of-Code/Simple-Move#readme",
+  "dependencies": {
+    "csvtojson": "^1.0.3",
+    "express": "^4.14.0"
+  }
+}
